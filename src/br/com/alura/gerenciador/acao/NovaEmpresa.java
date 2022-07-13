@@ -14,7 +14,7 @@ import br.com.alura.gerenciador.modelo.Empresa;
 
 public class NovaEmpresa {
 
-	public void nova(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+	public String nova(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 		String nomeEmpresa = request.getParameter("nome");
 		String paramDataEmpresa = request.getParameter("data");
 
@@ -35,7 +35,7 @@ public class NovaEmpresa {
 
 		request.setAttribute("empresa", empresa.getNome());
 
-		response.sendRedirect("entrada?acao=ListaEmpresas");
+		return "redirect:entrada?acao=ListaEmpresas";
 
 	}
 
